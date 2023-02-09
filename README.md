@@ -1,6 +1,5 @@
 # Pharmacy-Recommendation
 
----
 
 [외부 API (카카오 주소 검색 API)](https://developers.kakao.com/docs/latest/ko/local/dev-guide)와 [공공 데이터 (약국 현황 정보)](https://www.data.go.kr/data/15065023/fileData.do)를 활용함으로써 혼자 개발하고 마무리 되는 프로젝트가 아닌 실제 서비스 가능한 수준의 프로젝트를 경험해본다.
 
@@ -8,11 +7,9 @@
 
 ## [요구사항 분석](/document/requirement.md)
 
----
 
 ## Feature List
 
----
 
 - Spring Data JPA를 이용한 CRUD 메서드 구현하기
 - Spock를 이용한 테스트 코드 작성하기
@@ -29,7 +26,6 @@
 
 ## Tech Stack
 
----
 
 - JDK 17
 - Spring Boot 3.0.2
