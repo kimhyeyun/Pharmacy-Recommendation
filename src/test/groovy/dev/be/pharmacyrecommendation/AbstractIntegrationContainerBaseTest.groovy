@@ -2,9 +2,10 @@ package dev.be.pharmacyrecommendation
 
 import org.springframework.boot.test.context.SpringBootTest
 import org.testcontainers.containers.GenericContainer
+import spock.lang.Specification
 
 @SpringBootTest
-abstract class AbstractIntegrationContainerBaseTest {
+abstract class AbstractIntegrationContainerBaseTest extends Specification{
     static final GenericContainer MY_REDIS_CONTAINER
 
     static {
