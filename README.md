@@ -31,7 +31,7 @@
 - Spring Boot 3.0.2
 - Spring Data JPA
 - Gradle
-- Handlers
+- Thymeleaf
 - Lombok
 - Github
 - Docker
