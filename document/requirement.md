@@ -1,6 +1,5 @@
 # 요구사항 분석
 
----
 
 - 약국 찾기 서비스 요구사항
     - `약국 현황 데이터(공공 데이터)를 관리하고 있다`라고 가정하고, 약국 현황 데이터는 위도, 경도의 위치 정보 데이터를 가지고 있다.
@@ -26,11 +25,9 @@
 
 ## Pharmacy Recommendation Process
 
----
-![img.png](Desktop/YUN/fastCampus/Pharmacy-Recommendation/document/pharmacy_recommendation_system.png)
+![img.png](pharmacy_recommendation_system.png)
 
 ## Direction Shorten Url Process
 
----
 ![img_1.png](direction_process(shorten_url).png)
 
