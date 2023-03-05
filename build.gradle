@@ -51,6 +51,9 @@ dependencies {
 
     testImplementation('com.squareup.okhttp3:okhttp:4.10.0')
     testImplementation('com.squareup.okhttp3:mockwebserver:4.10.0')
+
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 }
 
 tasks.named('test') {
