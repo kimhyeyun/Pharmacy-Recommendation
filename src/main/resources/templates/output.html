@@ -20,6 +20,11 @@
             width: 70%;
             height: 550px;
         }
+
+        .marker-img {
+            width: 55px;
+            height: 55px;
+        }
     </style>
 </head>
 <body>
@@ -42,9 +47,9 @@
                 <tr>
                     <td th:text="${output.pharmacyName}"></td>
                     <td th:text="${output.pharmacyAddress}"></td>
-                    <td th:text="${output.directionUrl}"></td>
-                    <td><a th:href="${output.directionUrl}" th:text="${output.directionUrl}"></a></td>
-                    <td><a th:href="${output.roadViewUrl}" th:text="${output.roadViewUrl}"></a></td>
+                    <td th:text="${output.distance}"></td>
+                    <td><a th:href="${output.directionUrl}"><img class="marker-img" src="/images/pharmacy-marker.png" th:alt="${output.directionUrl}"></a></td>
+                    <td><a th:href="${output.roadViewUrl}"><img class="marker-img" src="/images/road-view-marker.png" th:alt="${output.roadViewUrl}"></a></td>
                 </tr>
             </th:block>
             </tbody>
