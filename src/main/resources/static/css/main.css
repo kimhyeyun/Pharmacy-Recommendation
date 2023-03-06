@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap');
+
+body{
+    background: #f9f9f9;
+    font-family: "Sunflower", sans-serif;
+}
+
+
+.main-content{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}

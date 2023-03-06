@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Pharmacy Recommendation System</title>
+
+    <!--부트스트랩 css 추가-->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/output.css">
+
+    <style>
+        .grid-image, .h2-title {
+            display: flex;
+            justify-content: center;
+        }
+
+        img {
+            margin: 0 0 5px;
+            width: 70%;
+            height: 550px;
+        }
+    </style>
+</head>
+<body>
+<section class="main-content">
+
+    <div class="container">
+        <h2 class="h2-title">약국 추천 결과</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>약국명</th>
+                <th>약국 주소</th>
+                <th>거리</th>
+                <th>길안내 링크</th>
+                <th>로드뷰 링크</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="output:${outputFormList}">
+                <tr>
+                    <td th:text="${output.pharmacyName}"></td>
+                    <td th:text="${output.pharmacyAddress}"></td>
+                    <td th:text="${output.directionUrl}"></td>
+                    <td><a th:href="${output.directionUrl}" th:text="${output.directionUrl}"></a></td>
+                    <td><a th:href="${output.roadViewUrl}" th:text="${output.roadViewUrl}"></a></td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+
+        <div class="grid-image">
+            <img src="/images/kakao.png" alt="kakao" class="img-responsive img-rounded">
+        </div>
+    </div>
+</section>
+
+<script src="/js/lib/jquery.min.js"></script>
+<script src="/js/lib/bootstrap.min.js"></script>
+
+</body>
+</html>
