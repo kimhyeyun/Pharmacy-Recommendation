@@ -25,7 +25,6 @@ import java.util.stream.Collectors;
 public class PharmacyRecommendationService {
 
     private static final String ROAD_VIEW_BASE_URL = "https://map.kakao.com/link/roadview/";
-    private static final String DIRECTION_BASE_URL = "https://map.kakao.com/link/map/";
 
     private final KakaoAddressSearchService kakaoAddressSearchService;
     private final DirectionService directionService;
