@@ -5,12 +5,14 @@ import dev.be.pharmacyrecommendation.api.dto.KakaoApiResponseDto;
 import dev.be.pharmacyrecommendation.api.service.KakaoAddressSearchService;
 import dev.be.pharmacyrecommendation.direction.dto.OutputDto;
 import dev.be.pharmacyrecommendation.direction.entity.Direction;
+import dev.be.pharmacyrecommendation.direction.service.Base62Service;
 import dev.be.pharmacyrecommendation.direction.service.DirectionService;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Collections;
 import java.util.List;
@@ -26,6 +28,9 @@ public class PharmacyRecommendationService {
 
     private final KakaoAddressSearchService kakaoAddressSearchService;
     private final DirectionService directionService;
+    private final Base62Service base62Service;
+
+    @Value("${pharmacy.recommendation.base.url}") private String baseUrl;
 
     public List<OutputDto> recommendPharmacyList(String address) {
         KakaoApiResponseDto kakaoApiResponseDto = kakaoAddressSearchService.requestAddressSearch(address);
@@ -37,8 +42,8 @@ public class PharmacyRecommendationService {
 
         DocumentDto documentDto = kakaoApiResponseDto.getDocumentList().get(0);
 
-//        List<Direction> directionList = directionService.buildDirectionList(documentDto);
-        List<Direction> directionList = directionService.buildDirectionListByCategoryApi(documentDto);
+        List<Direction> directionList = directionService.buildDirectionList(documentDto);
+//        List<Direction> directionList = directionService.buildDirectionListByCategoryApi(documentDto);
 
         return directionService.saveAll(directionList)
                 .stream()
@@ -47,12 +52,14 @@ public class PharmacyRecommendationService {
     }
 
     private OutputDto conevertToOutputDto(Direction direction) {
+
         return OutputDto.builder()
                 .pharmacyName(direction.getTargetPharmacyName())
                 .pharmacyAddress(direction.getTargetAddress())
-                .directionUrl("todo") // TODO: url 넣어야함
-                .roadViewUrl("todo") // TODO: url 넣어야함
+                .directionUrl(baseUrl + base62Service.encodeDirectionId(direction.getId()))
+                .roadViewUrl(ROAD_VIEW_BASE_URL + direction.getTargetLatitude() + "," + direction.getTargetLongitude())
                 .distance(String.format("%.2f km", direction.getDistance()))
                 .build();
     }
+
 }

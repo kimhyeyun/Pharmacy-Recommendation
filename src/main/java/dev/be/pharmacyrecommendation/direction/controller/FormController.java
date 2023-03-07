@@ -2,7 +2,7 @@ package dev.be.pharmacyrecommendation.direction.controller;
 
 import dev.be.pharmacyrecommendation.direction.dto.InputDto;
 import dev.be.pharmacyrecommendation.pharmacy.service.PharmacyRecommendationService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class FormController {
 
     private final PharmacyRecommendationService pharmacyRecommendationService;
