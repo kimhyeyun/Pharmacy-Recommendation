@@ -6,7 +6,10 @@ spring:
     hibernate:
       ddl-auto: create
     show-sql: true
-
+  data:
+    redis:
+      port: 6379
+      host: localhost
 kakao:
   rest:
     api:
